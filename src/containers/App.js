@@ -4,29 +4,23 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 
-class App extends Component { // a component must always return something. WAS React.Component but short handing (see top) allows for this shortened version
-
-
-  // App contains 2 state objects, robots and searchField
-  // State is an object that describes the application and is able to change.
-  // Props are simply things that come out of state. A parent tells the child what the state is, and it comes out as a property
-  // smart component
+class App extends Component {
   constructor() {
-    super(); // to use this.state you need to call super() which is the constructor of component
+    super();
     this.state = { 
       robots: [],
       searchField: ''
     }
   }
   
-  // do not need arrow function because this is a part of react
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users') // getting the users from external api
     .then(response => response.json())
-    .then(users => {this.setState({ robots: users})}) // updating the state of users with setState
+    .then(users => {this.setState({ robots: users})})
   }
-  // originally without the arrow function.. had to use es6 arrow functions to properly refer to the correct this statement in the App component here
-  onSearchChange = (event) => { // every time the input changes, we get an event
+
+  // every time the input changes, we get an event
+  onSearchChange = (event) => { 
     // change the value of the searchField in the SearchBox Component
     this.setState({ searchField: event.target.value });
   }
