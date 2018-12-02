@@ -3,7 +3,7 @@
 
 import React from 'react'; // this is vue library..the core section of react used in VR / DOM manipulation for us etc. and importing libraries such as ReactDOM.. which is the glue of the React. 
 import ReactDOM from 'react-dom';
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 import { createStore } from "redux";
 import './index.css'; // allows css from anywhere or any component. Have to tell where css is
 import App from './containers/App';
